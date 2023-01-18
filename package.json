@@ -1,5 +1,5 @@
 {
-  "name": "storybook-example-alipschutz",
+  "name": "@alipschutz/storybook-example-alipschutz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,11 +19,12 @@
   "author": "alanelipschutz@gmail.com",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=65bdb7a223be"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,16 @@
           "import/no-anonymous-default-export": "off"
         }
       }
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
     ]
   },
   "browserslist": {
@@ -70,5 +81,16 @@
     "cross-env": "^7.0.3",
     "prop-types": "^15.8.1",
     "webpack": "^5.75.0"
-  }
+  },
+  "description": "my first storybook",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alipschutz-synamedia/my-first-storybook.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alipschutz-synamedia/my-first-storybook/issues"
+  },
+  "homepage": "https://github.com/alipschutz-synamedia/my-first-storybook#readme"
 }
